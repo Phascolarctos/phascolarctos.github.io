@@ -37,3 +37,21 @@ for (let index = 0; index < dms.length; index++) {
         c.innerText = v.ctt
     })
 }
+
+const mode = document.getElementById("darkmode")
+const arl = document.getElementById("arl")
+let darkmode = false
+mode.addEventListener("click", (event) => {
+    mode.style.transition = "2s"
+    if (darkmode) {
+        document.body.style.backgroundColor = "#FFFFFF"
+        document.body.style.color = "#1A1A1D"
+        mode.src = "images/sun.svg"
+        darkmode = false
+    } else {
+        document.body.style.backgroundColor = "#0B192C"
+        document.body.style.color = "#FFFFFF"
+        mode.src = "images/moon.svg"
+        darkmode = true
+    }
+})
