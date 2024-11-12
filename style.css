@@ -1,0 +1,110 @@
+body {
+    background-color: #FFFFFF;
+    color: #1A1A1D;
+    max-width: 1493px;
+    min-height: 933px;
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+#app {
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+}
+
+#left {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 8px;
+    min-height: 820px;
+    min-width: 160px;
+    border-right: 0.3px solid #FC4100;
+
+    .avater {
+        width: 60%;
+        height: auto;
+        align-self: center;
+        border-radius: 50%;
+
+        img {
+            width: 100%;
+            border-radius: 50%;
+        }
+
+        img:hover {
+            background-color: #FC4100;
+            transition: 2s;
+        }
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row;
+        justify-items: center;
+        min-height: 20px;
+        line-height: 20px;
+        padding: 8px;
+        border-bottom: 0.6px dashed #FC4100;
+    }
+
+    .card:hover {
+        background-color: #FC4100;
+        transition: 2s;
+    }
+}
+
+#at {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 32px;
+    font-size: 1.2rem;
+
+    .att {
+        min-height: 32px;
+        line-height: 32px;
+        width: 100%;
+        padding: 8px 0;
+        margin: 4px 0;
+        color: #FFFFFF;
+        border-radius: 4px;
+        background-color: #FC4100;
+        opacity: 0.8;
+    }
+
+    .att:hover {
+        transition: 0.8s;
+        opacity: 0.8;
+        background-color: #4379F2;
+    }
+}
+
+#right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    margin: 0 8px;
+    color: #FFFFFF;
+    font-size: 0.8rem;
+
+    .tm {
+        width: 100%;
+        line-height: 100%;
+        padding: 8px 0;
+        text-align: center;
+        margin: 4px 0;
+        background-color: #FC4100;
+        opacity: 0.8;
+        border-radius: 4px;
+    }
+
+    .tm:hover {
+        transition: 0.8s;
+        opacity: 0.8;
+        background-color: #4379F2;
+    }
+}
