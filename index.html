@@ -4,92 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phascolarctos's Blog</title>
+    <title>Sloth's Tracing</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="./images/favicons/site.webmanifest">
     <link href="./style.css" rel="stylesheet" />
 </head>
 
 <body>
     <div id="app">
-        <div id="left">
-            <div class="avater">
-                <img src="images/avater.svg" alt="Rust">
-            </div>
-            <div class="card">
-                <div class="tit">昵称：</div>
-                <div class="ctt">十井一方</div>
-            </div>
-            <div class="card">
-                <div class="tit">国籍：</div>
-                <div class="ctt">中国</div>
-            </div>
-            <div class="card">
-                <div class="tit">学校：</div>
-                <div class="ctt">河南大学</div>
-            </div>
-            <div class="card">
-                <div class="tit">居住：</div>
-                <div class="ctt">隐藏</div>
-            </div>
-            <div class="card">
-                <div class="tit">哪儿：</div>
-                <div class="ctt">走心</div>
-            </div>
-            <div id="at">
-                <div class="att">
-                    Rust
-                </div>
-                <div class="att">
-                    Java
-                </div>
-                <div class="att">
-                    Web
-                </div>
-                <div class="att">
-                    Docker
-                </div>
-                <div class="att">
-                    DataStructure
-                </div>
-                <div class="att">
-                    Database
-                </div>
-                <div class="att">
-                    Algorithm
-                </div>
-                <div class="att">
-                    Micro Services
-                </div>
-                <div class="att">
-                    DDD
-                </div>
-            </div>
-        </div>
-        <div id="right">
-            <div id="hd">
-                <div class="tmc">
-                    <p id="tmc"></p>
-                </div>
-                <!-- <div class="tm">
-                    <p>Plan Pin Paper</p>
-                </div> -->
-                <div class="hd-right">
-                    <div class="ig">
-                        <img id="darkmode" src="images/sun.svg" alt="light mode" height="35px" width="35px">
-                    </div>
-                    <div class="ig">
-                        <a href="https://github.com/Phascolarctos" target="_blank">
-                            <img src="images/github.svg" alt="github" height="30px" width="30px">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div id="arl">
-                <div id="tlt">述评丨开启中拉命运共同体建设新征程</div>
-                <div id="ctt">
-                    新华社利马11月11日电（记者赵凯、席玥）应秘鲁总统博鲁阿尔特、巴西总统卢拉邀请，中国国家主席习近平将于11月13日至21日赴秘鲁出席亚太经合组织第三十一次领导人非正式会议并对秘鲁进行国事访问，赴巴西出席二十国集团领导人第十九次峰会并对巴西进行国事访问。中国元首外交再启新程，“中拉时间”再谱新篇。携手前行，共赴未来，中拉命运共同体这艘大船正承载共同梦想与追求，驶向下一个更加光明的十年
-                </div>
-            </div>
-        </div>
+        <header class="header_hearding">
+            <nav>
+                <a href="/">
+                    <img class="logo_hearding" src="./images/herding.svg" alt="hearding">
+                </a>
+                <a href="/blog">
+                    Tracing
+                </a>
+            </nav>
+            <nav class="right_hearding">
+                <a href="https://gitee.com/phascolarctos" target="_blank" rel="noopener" title="Gitee">
+                    <svg viewBox="0 0 1242 1024" width="28" height="28">
+                        <path
+                            d="M531.252 0c-282.83 0-512 229.17-512 512s229.17 512 512 512 512-229.17 512-512-229.169-512-512-512zM389.528 678.34h234.319c40.787 0 73.952-33.061 73.952-73.951v-12.257c0-13.596-11.02-24.72-24.72-24.72H500.457a24.66 24.66 0 0 1-24.72-24.719v-61.592a24.66 24.66 0 0 1 24.72-24.72h283.552c13.596 0 24.72 11.021 24.72 24.72v141.724c0 91.977-74.57 166.444-166.445 166.444H278.497c-13.596 0-24.72-11.02-24.72-24.72V419.51c0-102.071 82.81-184.881 184.88-184.881h345.35a24.66 24.66 0 0 1 24.72 24.72l-0.103 61.592a24.66 24.66 0 0 1-24.72 24.72H438.762c-40.787 0-73.952 33.061-73.952 73.951v234.216c0 13.493 11.02 24.514 24.719 24.514z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="https://github.com/Phascolarctos" target="_blank" rel="noopener" title="GitHub">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
+                        </path>
+                    </svg>
+                </a>
+                <input class="dark_sloth" type="checkbox" title="Dark Mode">
+            </nav>
+        </header>
     </div>
     <script src="./main.js"></script>
 </body>
