@@ -254,7 +254,9 @@ svg[outline] {
 .header_hearding nav.right_hearding {
     flex: 0
 }
-
+.right_mode{
+    display: none;
+}
 .header_hearding nav a {
     display: flex;
     justify-content: center;
