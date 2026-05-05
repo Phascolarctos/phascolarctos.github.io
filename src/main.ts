@@ -1,5 +1,5 @@
 import './style.css'
-import init, { render } from '../pkg/koala_wasm_markdown.js'
+// import init, { render } from '../pkg/koala_wasm_markdown.js'
 import { fetchPostIndex} from './blog'
 import 'github-markdown-css/github-markdown.css'
 const loadPage = async () => {
