@@ -2,11 +2,12 @@
 
 target/*
 Cargo.lock
+posts.json
 
 # Pnpm
 
 node_modules/*
-pnpm_lock.yaml
+pnpm-lock.yaml
 
 # Build
 
