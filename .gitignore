@@ -1,0 +1,13 @@
+# Rust
+
+target/*
+Cargo.lock
+
+# Pnpm
+
+node_modules/*
+pnpm_lock.yaml
+
+# Build
+
+dist/*

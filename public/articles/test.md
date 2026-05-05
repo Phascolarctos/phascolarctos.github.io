@@ -1,6 +1,13 @@
+---
+id: "1"
+title: "我的第一篇博客"
+date: "2026-05-05"
+tags: ["rust", "wasm"]
+---
+
 # Github Pages
 
-self host static files 
+self host static files
 
 ## static build
 
@@ -16,20 +23,10 @@ ist use rust lib of pulldown-cmark.
 ## static site generator ( SSG ) ( SEO optimize )
 
 now use vite plugin of SSG or Deno.
-mtd prerendering markdown files to html 
+mtd prerendering markdown files to html
 
 ## full stack/edge
 
 now use deno+fresh or java web to add dynamic content.
 
 tip Islands Architecture (孤岛架构)
-
-## how to use
-
-> cargo run --bin gen
-
-> wasm-pack build --target web
-
-> pnpm install
-
-> pnpm run build
