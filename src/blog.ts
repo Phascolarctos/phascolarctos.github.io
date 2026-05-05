@@ -6,6 +6,7 @@ export interface Post {
     date: string;
     tags: string[];
     filename: string;
+    content: string;
 }
 
 export async function fetchPostIndex(): Promise<Post[]> {

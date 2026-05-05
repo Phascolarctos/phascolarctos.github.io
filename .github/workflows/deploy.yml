@@ -30,8 +30,8 @@ jobs:
       - name: Rust Build (Generate Index)
         run: cargo run --bin gen
 
-      - name: Wasm Build
-        run: wasm-pack build --target web --release
+      # - name: Wasm Build
+        # run: wasm-pack build --target web --release
 
       # 3. Node.js 环境准备
       - name: Setup Node

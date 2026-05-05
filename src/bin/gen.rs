@@ -1,4 +1,5 @@
 use gray_matter::{Matter, engine::YAML};
+use pulldown_cmark::{Options, Parser, html};
 use serde::{Deserialize, Serialize};
 use std::fs;
 
@@ -11,13 +12,14 @@ struct PostMetadata {
     #[serde(default)]
     id: String,
 }
-#[derive(Serialize)]
+#[derive(Serialize, Debug)]
 struct PostIndex {
     id: String,
     title: String,
     date: String,
     tags: Vec<String>,
     filename: String,
+    content: String,
 }
 
 const ARTICLES_DIR: &str = "./public/articles";
@@ -31,29 +33,24 @@ fn main() {
             let path = entry.path();
             let ext = path.extension().and_then(|s| s.to_str());
             if path.extension().and_then(|s| s.to_str()) == Some("md") {
-                let filename = path.file_name().unwrap().to_str().unwrap().to_string();
+                let file_name = path.file_name().unwrap().to_str().unwrap().to_string();
                 let content = fs::read_to_string(&path).expect("无法读取文件");
                 println!("解析内容：{:?}", content);
 
-                let result = matter.parse::<PostMetadata>(&content).ok();
-
-                println!("解析结果：{:?}", result);
-                if let Some(Some(mut meta)) = result.map(|r| r.data) {
-                    if meta.id.is_empty() {
-                        meta.id = path
-                            .file_stem()
-                            .and_then(|s| s.to_str())
-                            .map(|s| s.to_string())
-                            .unwrap_or_default();
-                    }
+                if let Ok(parsed) = matter.parse::<PostMetadata>(&content) {
+                    let meta = parsed.data.unwrap();
+                    let body = parsed.content;
+                    let content_str=render(&body);
                     posts.push(PostIndex {
                         id: meta.id,
                         title: meta.title,
                         date: meta.date,
                         tags: meta.tags,
-                        filename: filename,
+                        filename: file_name,
+                        content: content_str,
                     });
                 }
+                println!("解析结果：{:?}", posts);
             }
         }
     }
@@ -66,4 +63,18 @@ fn main() {
     fs::write("./public/posts.json", json).expect("写入索引失败");
 
     println!("成功解析 {} 篇文章并生成索引！", posts.len());
+}
+
+pub fn render(markdown_str: &str) -> String {
+    let mut options = Options::empty();
+    options.insert(Options::ENABLE_TABLES);
+    options.insert(Options::ENABLE_FOOTNOTES);
+
+    let parse = Parser::new_ext(markdown_str, options);
+
+    let mut html_str = String::new();
+
+    html::push_html(&mut html_str, parse);
+
+    html_str
 }

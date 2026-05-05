@@ -1,7 +1,7 @@
 import './style.css'
 import init, { render } from '../pkg/koala_wasm_markdown.js'
 import { fetchPostIndex} from './blog'
-
+import 'github-markdown-css/github-markdown.css'
 const loadPage = async () => {
 
   const posts = await fetchPostIndex();
@@ -13,12 +13,7 @@ const loadPage = async () => {
   if (postId) {
     const post = posts.find(p => p.id === postId);
     if (post) {
-      const res = await fetch(`/articles/${post.filename}`);
-      const md = await res.text();
-      const pureMd = md.replace(/^---[\s\S]*?---/, '');
-      await init();
-      const html_str = render(pureMd);
-      app.innerHTML = html_str;
+      app.innerHTML = post.content;
     }
   } else {
     app.innerHTML = `
