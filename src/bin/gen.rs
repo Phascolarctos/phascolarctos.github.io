@@ -1,3 +1,4 @@
+use ammonia::clean;
 use gray_matter::{Matter, engine::YAML};
 use pulldown_cmark::{Options, Parser, html};
 use serde::{Deserialize, Serialize};
@@ -35,22 +36,22 @@ fn main() {
             if path.extension().and_then(|s| s.to_str()) == Some("md") {
                 let file_name = path.file_name().unwrap().to_str().unwrap().to_string();
                 let content = fs::read_to_string(&path).expect("无法读取文件");
-                println!("解析内容：{:?}", content);
 
                 if let Ok(parsed) = matter.parse::<PostMetadata>(&content) {
                     let meta = parsed.data.unwrap();
                     let body = parsed.content;
-                    let content_str=render(&body);
+                    let content_str = render(&body);
+                    let final_content = clean(&content_str);
                     posts.push(PostIndex {
                         id: meta.id,
                         title: meta.title,
                         date: meta.date,
                         tags: meta.tags,
                         filename: file_name,
-                        content: content_str,
+                        content: final_content,
                     });
                 }
-                println!("解析结果：{:?}", posts);
+                // println!("解析结果：{:?}", posts);
             }
         }
     }

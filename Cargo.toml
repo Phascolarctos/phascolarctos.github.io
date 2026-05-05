@@ -6,6 +6,7 @@ edition = "2024"
 [lib]
 crate-type = ["cdylib", "rlib"]
 [dependencies]
+ammonia = "4.1.2"
 gray_matter = "0.3.2"
 pulldown-cmark = "0.13.3"
 serde = { version = "1.0.228", features = ["derive"] }
